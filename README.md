@@ -121,7 +121,6 @@ curl -X GET 'localhost:9200/_cluster/health?pretty'
 
 ![Задание 1 — cluster health](screenshots/task1-elasticsearch-health.png)
 
-> Сделайте скриншот команды `curl` в терминале, где виден нестандартный `cluster_name`.
 
 ---
 
@@ -149,7 +148,6 @@ GET /_cluster/health?pretty
 
 ## 🎯 Задание 3: Logstash + Nginx
 
-### Что сделано
 
 | Компонент | Назначение |
 |-----------|------------|
@@ -202,7 +200,6 @@ bash scripts/generate-traffic.sh
 
 ## 🎯 Задание 4: Filebeat
 
-### Что сделано
 
 Поставка access-логов Nginx переключена с Logstash на **Filebeat**.
 
@@ -232,7 +229,6 @@ Filebeat отправляет логи в индекс `nginx-filebeat-YYYY.MM.d
 
 ## 🎯 Задание 5*: Другой сервис
 
-### Что сделано
 
 Дополнительный сервис: **`demo-app`** — скрипт пишет JSON-логи в `app/logs/service.log`.
 
@@ -255,66 +251,3 @@ Filebeat отправляет логи в индекс `nginx-filebeat-YYYY.MM.d
 
 ---
 
-## 📚 Источники
-
-- [Домашнее задание 11-03](https://github.com/netology-code/sdb-homeworks/blob/main/11-03.md)
-- [Elasticsearch in Docker](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/docker.html)
-- [Logstash configuration](https://www.elastic.co/guide/en/logstash/7.17/configuration.html)
-- [Filebeat reference](https://www.elastic.co/guide/en/beats/filebeat/7.17/index.html)
-- [Kibana Discover](https://www.elastic.co/guide/en/kibana/7.17/discover.html)
-
----
-
-## 🚀 Push на GitHub
-
-### 1. Создайте репозиторий
-
-https://github.com/new?name=11-03-Sych-Kirill  
-→ **Create repository** (без README)
-
-### 2. Запустите ELK и сделайте скриншоты
-
-```bash
-cd /home/user/11-03-Sych-Kirill
-bash scripts/setup.sh
-# задание 4:
-bash scripts/switch-to-filebeat.sh
-```
-
-Сохраните PNG в `screenshots/` (см. `screenshots/README.md`).
-
-### 3. Hook против cursoragent (один раз)
-
-```bash
-cd /home/user/11-03-Sych-Kirill
-
-cat > .git/hooks/prepare-commit-msg << 'EOF'
-#!/bin/bash
-sed -i '/cursoragent@cursor\.com/d' "$1"
-sed -i '/Co-authored-by: Cursor/d' "$1"
-EOF
-chmod +x .git/hooks/prepare-commit-msg
-```
-
-### 4. Git init и push (из обычного терминала, не Cursor Agent)
-
-```bash
-cd /home/user/11-03-Sych-Kirill
-
-git init
-git branch -m main
-git config user.name "Kirill Sych"
-git config user.email "sych.ne.ptica.owl@gmail.com"
-
-git add .
-git commit --no-verify -m "Add ELK homework solution."
-
-git log -1 --format=%B
-
-git remote add origin git@github.com:sychnepticaowl-spec/11-03-Sych-Kirill.git
-git push -u origin main
-```
-
-### 5. Сдача в Netology
-
-https://github.com/sychnepticaowl-spec/11-03-Sych-Kirill/blob/main/README.md
