@@ -29,26 +29,26 @@
 11-03-Sych-Kirill/
 ├── docker-compose.yaml
 ├── elasticsearch/
-│   └── elasticsearch.yml      # cluster.name = sflt58-elk-m9k2p7
+│   └── elasticsearch.yml      
 ├── logstash/
 │   ├── pipelines.yml
 │   └── pipeline/
-│       ├── nginx.conf         # access-логи Nginx -> ES
-│       └── app.conf           # логи demo-app -> ES
+│       ├── nginx.conf         
+│       └── app.conf           
 ├── filebeat/
-│   └── filebeat.yml           # Nginx + demo-app -> ES
+│   └── filebeat.yml           
 ├── nginx/
 │   ├── nginx.conf
 │   ├── html/index.html
-│   └── logs/                  # access.log / error.log
+│   └── logs/                  
 ├── app/
-│   └── logs/service.log       # JSON-логи demo-app
+│   └── logs/service.log       
 ├── scripts/
 │   ├── setup.sh
 │   ├── generate-traffic.sh
 │   ├── switch-to-filebeat.sh
 │   └── stop.sh
-└── screenshots/               # сюда сохранить скриншоты
+└── screenshots/               
 ```
 
 ---
@@ -58,7 +58,7 @@
 ```bash
 cd /home/user/11-03-Sych-Kirill
 
-# один раз: Docker Compose v2 (если команда "docker compose" не работает)
+# один раз: Docker Compose v2 
 sudo apt update
 sudo apt install -y docker-compose-v2
 docker compose version
