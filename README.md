@@ -19,7 +19,7 @@
 - [Задание 2: Kibana](#-задание-2-kibana)
 - [Задание 3: Logstash + Nginx](#-задание-3-logstash--nginx)
 - [Задание 4: Filebeat](#-задание-4-filebeat)
-- [Задание 5*: Другой сервис](#-задание-5-другой-сервис)
+
 
 ---
 
@@ -106,15 +106,6 @@ xpack.security.enabled: false
 curl -X GET 'localhost:9200/_cluster/health?pretty'
 ```
 
-Ожидаемый фрагмент ответа:
-
-```json
-{
-  "cluster_name" : "sflt58-elk-m9k2p7",
-  "status" : "yellow",
-  "number_of_nodes" : 1
-}
-```
 
 ### 📸 Скриншот
 
@@ -130,14 +121,6 @@ curl -X GET 'localhost:9200/_cluster/health?pretty'
 1. Kibana поднята в Docker (`kibana:7.17.9`)
 2. Подключена к Elasticsearch: `http://elasticsearch:9200`
 
-### Проверка
-
-1. Откройте http://localhost:5601/app/dev_tools#/console
-2. Выполните запрос:
-
-```json
-GET /_cluster/health?pretty
-```
 
 ### 📸 Скриншот
 
@@ -226,27 +209,5 @@ Filebeat отправляет логи в индекс `nginx-filebeat-YYYY.MM.d
 
 ---
 
-## 🎯 Задание 5*: Другой сервис
 
-
-Дополнительный сервис: **`demo-app`** — скрипт пишет JSON-логи в `app/logs/service.log`.
-
-| Путь доставки | Индекс |
-|---------------|--------|
-| Logstash | `app-logstash-*` |
-| Filebeat | `app-filebeat-*` |
-
-Пример строки лога:
-
-```json
-{"timestamp":"2026-09-03T19:00:00+03:00","level":"INFO","service":"demo-app","message":"order processed","order_id":1}
-```
-
-**Приложение:** `demo-app` (сервис заказов, JSON-логи в файл).
-
-### 📸 Скриншот
-
-![Задание 5 — логи demo-app](screenshots/task5-demo-app-kibana.png)
-
----
 
