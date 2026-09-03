@@ -1,0 +1,11 @@
+# Docker
+.terraform/
+*.tfstate*
+
+# Logs
+nginx/logs/*.log
+app/logs/*.log
+
+# OS / editor
+.DS_Store
+*.swp

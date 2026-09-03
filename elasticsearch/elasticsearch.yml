@@ -1,0 +1,4 @@
+cluster.name: sflt58-elk-m9k2p7
+network.host: 0.0.0.0
+discovery.type: single-node
+xpack.security.enabled: false

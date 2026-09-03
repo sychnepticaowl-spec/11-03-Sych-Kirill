@@ -1,0 +1,27 @@
+input {
+  file {
+    path => "/var/log/nginx/access.log"
+    start_position => "beginning"
+    sincedb_path => "/usr/share/logstash/data/sincedb_nginx"
+    tags => ["nginx", "logstash"]
+  }
+}
+
+filter {
+  grok {
+    match => { "message" => "%{COMBINEDAPACHELOG}" }
+  }
+  mutate {
+    add_field => { "shipper" => "logstash" }
+  }
+  date {
+    match => [ "timestamp", "dd/MMM/yyyy:HH:mm:ss Z" ]
+  }
+}
+
+output {
+  elasticsearch {
+    hosts => ["http://elasticsearch:9200"]
+    index => "nginx-logstash-%{+YYYY.MM.dd}"
+  }
+}
