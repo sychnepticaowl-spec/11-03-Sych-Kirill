@@ -20,7 +20,6 @@
 - [Задание 3: Logstash + Nginx](#-задание-3-logstash--nginx)
 - [Задание 4: Filebeat](#-задание-4-filebeat)
 - [Задание 5*: Другой сервис](#-задание-5-другой-сервис)
-- [Push на GitHub](#-push-на-github)
 
 ---
 
